@@ -81,6 +81,76 @@ html {
     transition: 0.3s;
 }
 
+/* Add this to your style.css file */
+
+/* Language Switcher Button */
+.lang-switch {
+    background: #2986CC;
+    color: #0f172a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.lang-switch:hover {
+    background: #1e6ba3;
+    transform: translateY(-2px);
+}
+
+.lang-switch i {
+    font-size: 1rem;
+}
+
+/* Update nav-container to accommodate the button */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add a wrapper for nav items and language button */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .lang-switch {
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .lang-switch:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .lang-switch {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        right: 60px;
+    }
+}
+
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
@@ -170,18 +240,40 @@ html {
 }
 
 .hero-card {
-    background: rgba(0, 255, 136, 0.1);
+    background: transparent;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 3rem;
     text-align: center;
-    border: 1px solid rgba(0, 255, 136, 0.2);
+    position: relative;
 }
 
 .hero-icon {
     font-size: 4rem;
     color: #2986CC;
+    position: absolute;
 }
+
+.hero-icon:nth-child(1) {
+    top: 10px;
+    right: 230px;
+  }
+  
+  .hero-icon:nth-child(2) {
+    top: 100px;
+    right: 150px;
+    transform: translateY(-50%);
+  }
+  
+  .hero-icon:nth-child(3) {
+    top: 30px;
+    right: 10px;
+  }
+  
+  .hero-icon:nth-child(4) {
+    top: 100px;
+    left: 200px;
+  }
 
 /* Section Styles */
 section {
@@ -312,76 +404,175 @@ section {
     transform: scale(1.05);
 }
 
-/* Services Section */
-.services {
-    background: #1e293b;
+/* Project section */
+.projects-section {
+    padding: 80px;
+    margin: 0 auto;
+    background-color: #1e293b;
 }
 
-.services-grid {
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-.service-card {
-    background: #334155;
-    padding: 2.5rem;
+.project-card {
+    background: white;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    border: 1px solid #475569;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-.service-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #2986CC 0%, #2986CC 100%);
-    border-radius: 50%;
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.service-icon i {
-    font-size: 2rem;
-    color: #0f172a;
-}
-
-.service-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #e2e8f0;
-}
-
-.service-card p {
-    color: #cbd5e1;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.service-features {
-    list-style: none;
-}
-
-.service-features li {
-    padding: 0.5rem 0;
-    color: #cbd5e1;
     position: relative;
-    padding-left: 1.5rem;
+    overflow: hidden;
 }
 
-.service-features li::before {
-    content: "✓";
+.project-image i {
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.project-overlay {
     position: absolute;
+    top: 0;
     left: 0;
-    color: #2986CC;
-    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.overlay-btn {
+    padding: 12px 24px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.overlay-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.project-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    padding: 6px 14px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #764ba2;
+}
+
+.project-link i {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 36px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Contact Section */

@@ -3,32 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Nguyen - Front-End Developer</title>
+    <title>Quan Nguyen - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "YOUR_PUBLIC_KEY",
+      });
+   })();
+</script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo"><img src="/image/JH-logo.png" alt=""></a>
+            <a href="#home" class="nav-logo"><img src="image/Quan_development_logo.png" alt=""></a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
                 </li>
             </ul>
+            <button id="langSwitch" class="lang-switch">
+                <i class="fas fa-language"></i> CZ
+            </button>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -40,20 +53,23 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm John Nguyen</h1>
-                <h2 class="hero-subtitle">Front-End Developer</h2>
-                <p class="hero-description"> 
+                <h1 class="hero-title">Quan Nguyen</h1>
+                <h3 class="hero-subtitle">Front-End Developer</h3>
+                <p class="hero-description" data-i18n="hero.description"> 
                     I help small businesses create stunning websites that showcase their brand and drive growth. 
                     At 16, I'm passionate about building modern, responsive web experiences.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                    <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get In Touch</a>
+                    <a href="#about" class="btn btn-secondary" data-i18n="hero.cta2">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-card">
                     <i class="fas fa-code hero-icon"></i>
+                    <i class="fab fa-html5 hero-icon"></i>
+                    <i class="fab fa-css3-alt hero-icon"></i>
+                    <i class="fab fa-js hero-icon"></i>
                 </div>
             </div>
         </div>
@@ -61,14 +77,14 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about.text1">
                         I'm a 16-year-old front-end developer with a passion for creating beautiful, 
                         functional websites that help small businesses establish their online presence and grow.
                     </p>
-                    <p>
+                    <p data-i18n="about.text2">
                         I believe every business deserves a professional website that represents their brand 
                         and connects with their customers. My goal is to make quality web development accessible 
                         to small businesses through modern tools and efficient development practices.
@@ -76,15 +92,15 @@
                     <div class="about-stats">
                         <div class="stat">
                             <h3>16</h3>
-                            <p>Years Old</p>
+                            <p data-i18n="about.stat1">Years Old</p>
                         </div>
                         <div class="stat">
                             <h3>100%</h3>
-                            <p>Dedicated</p>
+                            <p data-i18n="about.stat2">Dedicated</p>
                         </div>
                         <div class="stat">
-                            <h3>Fast</h3>
-                            <p>Delivery</p>
+                            <h3 data-i18n="about.stat4">Fast</h3>
+                            <p data-i18n="about.stat3">Delivery</p>
                         </div>
                     </div>
                 </div>
@@ -94,47 +110,27 @@
 
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title" data-i18n="skill.title">My Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="fab fa-html5"></i>
                     <h3>HTML</h3>
-                    <p>Semantic markup and accessibility best practices</p>
+                    <p data-i18n="skills.html">Semantic markup and accessibility best practices</p>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-css3-alt"></i>
                     <h3>CSS</h3>
-                    <p>Modern styling with Flexbox, Grid, and animations</p>
+                    <p data-i18n="skills.css">Modern styling with Flexbox, Grid, and animations</p>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-js"></i>
                     <h3>JavaScript</h3>
-                    <p>Interactive functionality and DOM manipulation</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <p>Component-based UI development and state management</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Next.js</h3>
-                    <p>Full-stack React framework for production</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js-square"></i>
-                    <h3>TypeScript</h3>
-                    <p>Type-safe JavaScript for scalable applications</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-wind"></i>
-                    <h3>Tailwind CSS</h3>
-                    <p>Utility-first CSS framework for rapid development</p>
+                    <p data-i18n="skills.js">Interactive functionality and DOM manipulation</p>
                 </div>
             </div>
             
             <div class="tools-section">
-                <h3 class="tools-title">Development Tools</h3>
+                <h3 class="tools-title" data-i18n="skills.tools">Development Tools</h3>
                 <div class="tools-grid">
                     <div class="tool-item">
                         <i class="fas fa-edit"></i>
@@ -142,7 +138,7 @@
                     </div>
                     <div class="tool-item">
                         <i class="fas fa-robot"></i>
-                        <span>ChatGPT</span>
+                        <span>Claude</span>
                     </div>
                     <div class="tool-item">
                         <i class="fas fa-magic"></i>
@@ -150,7 +146,7 @@
                     </div>
                     <div class="tool-item">
                         <i class="fas fa-code"></i>
-                        <span>Replit</span>
+                        <span>Codia</span>
                     </div>
                     <div class="tool-item">
                         <i class="fas fa-paint-brush"></i>
@@ -161,117 +157,135 @@
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
+    <!-- Projects section --->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2 data-i18n="projects.title">My Projects</h2>
+            <p data-i18n="projects.subtitle">Here are some of the websites I've built</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fa-solid fa-dumbbell"></i>
+                    <div class="project-overlay">
+                        <a href="https://webjohn7.github.io/BezdGym/" target="_blank" class="overlay-btn">
+                            <i class="fas fa-eye"></i> View
+                        </a>
                     </div>
-                    <h3>Website Development</h3>
-                    <p>Custom websites built with modern technologies, optimized for performance and user experience.</p>
-                    <ul class="service-features">
-                        <li>Responsive design</li>
-                        <li>Fast loading times</li>
-                        <li>SEO optimized</li>
-                        <li>Mobile-first approach</li>
-                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-store"></i>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="projects.gym.title">Gym website</h3>
+                    <p class="project-description" data-i18n="projects.gym.desc">Fully responsive gym website designed to showcase services and membership plans with a modern, user-friendly interface.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
-                    <h3>Small Business Focus</h3>
-                    <p>Specialized in helping small businesses establish their online presence and grow their customer base.</p>
-                    <ul class="service-features">
-                        <li>Professional branding</li>
-                        <li>Contact forms</li>
-                        <li>Business information</li>
-                        <li>Customer testimonials</li>
-                    </ul>
+                    <div class="project-links">
+                        <a href="https://webjohn7.github.io/BezdGym/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/WebJohn7/BezdGym" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="project-overlay">
+                        <a href="https://webjohn7.github.io/JohnNguyenPortfolio/" target="_blank" class="overlay-btn">
+                            <i class="fas fa-eye"></i> View
+                        </a>
                     </div>
-                    <h3>Fast Development</h3>
-                    <p>Quick turnaround times using modern development tools and AI assistance for efficient workflows.</p>
-                    <ul class="service-features">
-                        <li>Rapid prototyping</li>
-                        <li>AI-assisted coding</li>
-                        <li>Quick iterations</li>
-                        <li>Modern tooling</li>
-                    </ul>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="projects.title2">Portfolio website</h3>
+                    <p class="project-description" data-i18n="projects.portfolio.desc">My personal portfolio website where I show my work and skills</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://webjohn7.github.io/JohnNguyenPortfolio/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/WebJohn7/JohnNguyenPortfolio" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>Ready to take your business online? I'd love to help you create a website that represents your brand and drives growth.</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <span>john.nguyen.dev@email.com</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <span>Available for consultation</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-clock"></i>
-                            <span>Quick response time</span>
-                        </div>
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 data-i18n="contact.heading">Let's Work Together</h3>
+                <p data-i18n="contact.text">Ready to take your business online? I'd love to help you create a website that represents your brand and drives growth.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>quan.webdev@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span data-i18n="contact.phone">Available for consultation</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <span data-i18n="contact.time">Quick response time</span>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" id="business" name="business">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business" data-i18n="contact.form.business">Business Name</label>
+                        <input type="text" id="business" name="business">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Project Details</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>John Nguyen</h3>
-                    <p>Front-End Developer helping small businesses grow online</p>
+                    <h3>Quan Nguyen</h3>
+                    <p data-i18n="footer.text">Front-End Developer helping small businesses grow online</p>
                 </div>
                 <div class="footer-right">
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/WebJohn7" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 John Nguyen. All rights reserved.</p>
+                <p>&copy; 2025 Quan Nguyen.</p>
             </div>
         </div>
     </footer>
